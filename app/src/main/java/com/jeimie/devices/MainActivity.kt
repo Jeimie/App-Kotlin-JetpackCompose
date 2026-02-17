@@ -27,17 +27,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@Composable
-fun MainView(modifier: Modifier) {
-    Text(text = "Comprar",
-        modifier = modifier)
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun MainPreview() {
-    DevicesTheme {
-        MainView(Modifier.padding(top = 24.dp))
-    }
-}
