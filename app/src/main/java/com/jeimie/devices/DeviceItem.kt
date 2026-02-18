@@ -1,0 +1,24 @@
+package com.jeimie.devices
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.jeimie.devices.ui.theme.DevicesTheme
+
+@Composable
+fun DeviceView(device: Device){
+    Column {
+        Text(text = device.name)
+        Text(text = device.data?.color ?: "-")
+        Text(text = device.data?.capacity ?: "-")
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DeviceItemPreview() {
+    DevicesTheme {
+        DeviceView(device = Device( id=1, name="Nexus", Specs( color = "Black", capacity = "64 GB")))
+    }
+}
