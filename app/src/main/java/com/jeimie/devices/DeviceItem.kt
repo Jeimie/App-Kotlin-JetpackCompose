@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
 import com.jeimie.devices.ui.theme.DevicesTheme
+import com.jeimie.devices.ui.theme.Typography
 
 @Composable
 fun DeviceView(device: Device){
@@ -17,9 +18,9 @@ fun DeviceView(device: Device){
         Icon(imageVector = Icons.Default.Phone,
             contentDescription = null)
         Column {
-            Text(text = device.name)
-            Text(text = device.data?.color ?: "-")
-            Text(text = device.data?.capacity ?: "-")
+            Text(text = device.name, style = Typography.headlineMedium)
+            Text(text = device.data?.color ?: "-", style = Typography.bodyMedium)
+            Text(text = device.data?.capacity ?: "-", style = Typography.bodyMedium)
         }
     }
 }
