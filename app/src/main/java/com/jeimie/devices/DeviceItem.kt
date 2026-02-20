@@ -17,15 +17,24 @@ import com.jeimie.devices.ui.theme.DevicesTheme
 import com.jeimie.devices.ui.theme.Typography
 
 @Composable
-fun DeviceView(device: Device){
-    Row (verticalAlignment = Alignment.CenterVertically) {
+fun DeviceItemView(device: Device){
+    Row (verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(end = 16.dp, top = 8.dp, bottom = 8.dp)) {
         Icon(imageVector = Icons.Default.Phone,
             contentDescription = null,
             modifier = Modifier.padding(horizontal= 16.dp))
         Column {
             Text(text = device.name, style = Typography.headlineMedium)
-            Text(text = device.data?.color ?: "-", style = Typography.bodyMedium)
-            Text(text = device.data?.capacity ?: "-", style = Typography.bodyMedium)
+            if (device.data?.color != null) {
+                Text(
+                    text = device.data.color,
+                    style = Typography.bodyMedium)
+            }
+            if (device.data?.capacity != null) {
+                Text(
+                    text = device.data.capacity,
+                    style = Typography.bodyMedium)
+            }
             HorizontalDivider()
         }
     }
@@ -35,6 +44,6 @@ fun DeviceView(device: Device){
 @Composable
 fun DeviceItemPreview() {
     DevicesTheme {
-        DeviceView(device = Device( id=1, name="Nexus", Specs( color = "Black", capacity = "64 GB")))
+        DeviceItemView(device = Device( id=1, name="Nexus", Specs( color = "Black", capacity = "64 GB")))
     }
 }
